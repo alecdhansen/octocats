@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
-
+:root {
+  --grayishcolor: #d8d7d7;
+}
 /* .octodex {
   display: flex;
   justify-content: space-between;
@@ -26,44 +28,47 @@
 .image-number {
   display: block;
 } */
-
+html {
+  box-sizing: border-box;
+}
 img {
   width: 100%;
 }
 
 .octodex {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
 }
-
 .octocat {
   width: 32%;
+  display: inline-block;
 }
 .octocat > a {
-  display: flex;
-  border: solid 2px rgb(233, 233, 233);
+  display: inline-block;
+  border: solid 2px var(--grayishcolor);
   border-radius: 3px;
+  position: relative;
 }
 
 .authors img {
   width: 30px;
   height: 30px;
   vertical-align: middle;
-  border-radius: 4px;
+  border-radius: 5px;
 }
-.image-caption {
-  display: flex;
-  justify-content: space-between;
-}
+
 ul {
   list-style: none;
+  padding: 0;
 }
 .image-number {
   font-size: 18px;
   font-weight: 900;
   color: gray;
   top: 50%;
+  left: 0;
   opacity: 0.4;
+  position: absolute;
+  transform: translateY(-50%);
 }
 .image-number::before {
   content: "#";
@@ -79,38 +84,44 @@ span {
 .image-caption > a {
   color: black;
   text-decoration: none;
-  display: flex;
   align-items: center;
   padding: 2px;
   font-family: "Roboto", sans-serif;
   opacity: 0.7;
 }
 .image-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 60px;
-  border-bottom: solid 2px rgb(233, 233, 233);
+  border-bottom: solid 2px var(--grayishcolor);
+  position: relative;
 }
 .image-footer > span {
   content: "#";
   display: flex;
   align-items: center;
 }
-.authors {
-  display: flex;
-  padding: 0;
-}
 .image-caption {
-  display: flex;
-  align-items: center;
+  top: 50%;
+  right: 0;
+  position: absolute;
+  transform: translateY(-50%);
 }
 .octocat > a::after {
   content: "";
+  height: 0;
+  width: 0;
   border-right: solid 9px transparent;
   border-left: solid 9px transparent;
-  border-top: solid 9px rgb(233, 233, 233);
-  position: relative;
-  top: 390px;
-  right: 20px;
+  border-top: solid 9px var(--grayishcolor);
+  position: absolute;
+  /* move it in a relation to parent element
+  if can't find anyone, moves it up to root element */
+  top: 100%;
+  right: 2%;
+}
+.authors > li > a {
+  display: inline-block;
+  width: 30px;
+}
+.authors {
+  display: inline-block;
 }
